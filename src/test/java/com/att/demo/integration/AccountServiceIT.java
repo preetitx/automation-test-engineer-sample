@@ -55,7 +55,20 @@ public class AccountServiceIT {
 	
 	@Test
 	public void testCreateUser_failure() {
-		//TO-DO	
+		//TO-DO
+		Account account = new Account();
+		account.setId(54321);
+		account.setName("test-create");
+		
+		givenBaseSpec()
+			.body(account)
+			.when()
+				.post(uri)
+				.then()
+					.statusCode(401);
+		
+		
+		
 	}
 	
 	@Test
